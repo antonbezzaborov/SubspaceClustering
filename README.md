@@ -46,22 +46,22 @@
   <img src="images/plot_benchmark.png" alt="Robustness to Curse of Dimensionality">
 </p>
 
+## Установка и запуск
 
-
-**Шаг 1. Установка зависимостей**
+**Шаг 1. Установка зависимостей:**
 Клонируйте репозиторий и установите необходимые Python-библиотеки:
 ```bash
 git clone https://github.com/antonbezzaborov/SubspaceClustering.git
 cd SubspaceClustering
 pip install -r requirements.txt
 ```
-**Шаг 2.  Компиляция C++ ядра**
+**Шаг 2.  Компиляция C++ ядра:**
 Скомпилируйте исполняемый файл из исходников. Находясь в корневой директории проекта, выполните:
 ```bash
 g++ -O3 src/main.cpp src/SubspaceKMeans.cpp -o subspace_kmeans
 ```
 
-**Шаг 3. Запуск экспериментов**
+**Шаг 3. Запуск экспериментов:**
 Запустите Python-скрипт, который автоматически сгенерирует данные, выполнит кластеризацию и сохранит графики:
 ```bash
 python run_experiments.py
