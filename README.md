@@ -27,14 +27,14 @@
 На наборе данных из 100 измерений (где 97 измерений — случайный шум) классический K-Means полностью теряет структуру данных. Наша реализация Subspace Clustering успешно игнорирует шум и восстанавливает исходные кластеры со 100% точностью (ARI = 1.0).
 
 <p align="center">
-  <img src="images/plot_1v1_comparison.png" alt="Subspace vs Standard K-Means">
+  <img src="experiments/plot_1v1_comparison.png" alt="Subspace vs Standard K-Means">
 </p>
 
 ### 2. Механизм динамического взвешивания
 В процессе EM-шагов алгоритм анализирует дисперсию по каждой оси. На графике ниже продемонстрировано, как алгоритм присвоил высокие веса первым трем (информативным) признакам, а веса остальных 97 шумовых признаков были сведены к нулю.
 
 <p align="center">
-  <img src="images/plot_weights.png" alt="Feature Weighting Mechanism">
+  <img src="experiments/plot_weights.png" alt="Feature Weighting Mechanism">
 </p>
 
 ### 3. Устойчивость к росту размерности
@@ -43,25 +43,25 @@
 * **Subspace K-Means** сохраняет идеальную точность (ARI = 1.0) вплоть до 200 шумовых измерений, превосходя классические алгоритмы в десятки раз, прежде чем окончательно уступить экстремальному давлению размерности.
 
 <p align="center">
-  <img src="images/plot_benchmark.png" alt="Robustness to Curse of Dimensionality">
+  <img src="experiments/plot_benchmark.png" alt="Robustness to Curse of Dimensionality">
 </p>
 
 ## Установка и запуск
 
-**Шаг 1. Установка зависимостей:**
+**Шаг 1. Установка зависимостей.**
 Клонируйте репозиторий и установите необходимые Python-библиотеки:
 ```bash
 git clone https://github.com/antonbezzaborov/SubspaceClustering.git
 cd SubspaceClustering
 pip install -r requirements.txt
 ```
-**Шаг 2.  Компиляция C++ ядра:**
+**Шаг 2.  Компиляция C++ ядра.**
 Скомпилируйте исполняемый файл из исходников. Находясь в корневой директории проекта, выполните:
 ```bash
 g++ -O3 src/main.cpp src/SubspaceKMeans.cpp -o subspace_kmeans
 ```
 
-**Шаг 3. Запуск экспериментов:**
+**Шаг 3. Запуск экспериментов.**
 Запустите Python-скрипт, который автоматически сгенерирует данные, выполнит кластеризацию и сохранит графики:
 ```bash
 python run_experiments.py
